@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Blog</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Using FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-container"></div>
+    
+    <main class="glass-container">
+        <header class="navbar">
+            <h1 class="logo">Blogging</h1>
+            <nav class="nav-links">
+                <a href="#" class="nav-item active">Home</a>
+                <a href="#" class="nav-item">Articles</a>
+            </nav>
+        </header>
+
+        <section class="content-area">
+            <h2 class="page-title">Create New Blog</h2>
+
+            <form class="blog-form">
+                <div class="form-group">
+                    <label for="title">Blog Title</label>
+                    <input type="text" id="title" placeholder="Enter your blog title..." class="glass-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="content">Content</label>
+                    <div class="rich-text-editor">
+                        <div class="toolbar">
+                            <button type="button" class="tool-btn"><i class="fa-solid fa-bold"></i></button>
+                            <button type="button" class="tool-btn"><i class="fa-solid fa-italic"></i></button>
+                            <button type="button" class="tool-btn"><i class="fa-solid fa-link"></i></button>
+                            <button type="button" class="tool-btn"><i class="fa-solid fa-list-ul"></i></button>
+                            <button type="button" class="tool-btn"><i class="fa-solid fa-list-ol"></i></button>
+                            <button type="button" class="tool-btn"><i class="fa-regular fa-image"></i></button>
+                            <div class="divider"></div>
+                            <button type="button" class="tool-btn"><i class="fa-solid fa-quote-right"></i></button>
+                        </div>
+                        <textarea id="content" placeholder="Write your blog content here..." class="editor-textarea"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <div class="select-wrapper">
+                        <select id="category" class="glass-select">
+                            <option value="" disabled selected>Select category...</option>
+                            <option value="tech">Technology</option>
+                            <option value="lifestyle">Lifestyle</option>
+                            <option value="travel">Travel</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down select-icon"></i>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-cancel">Cancel</button>
+                    <button type="submit" class="btn btn-publish">Publish Blog</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
