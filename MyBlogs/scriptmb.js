@@ -1,6 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
     const listContainer = document.querySelector('.blogs-list');
 
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('is-active');
+            navLinks.classList.toggle('active');
+        });
+    }
+
     function renderBlogs() {
         const blogs = JSON.parse(localStorage.getItem('blogs') || '[]');
         listContainer.innerHTML = '';
