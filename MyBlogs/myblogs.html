@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blogs - Blogverse</title>
+    <link rel="stylesheet" href="stylemb.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="background-container"></div>
+
+    <main class="glass-container">
+        <header class="navbar">
+            <h1 class="logo">Blogverse</h1>
+            <nav class="nav-links">
+                <a href="#" class="nav-item">Home</a>
+                <a href="#" class="nav-item active">My Blogs</a>
+            </nav>
+        </header>
+
+        <section class="content-area">
+            <div class="page-header">
+                <h2 class="page-title">My Blogs</h2>
+            </div>
+
+            <div class="filters-bar">
+                <div class="search-wrapper">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" placeholder="Search blogs..." class="glass-input search-input">
+                </div>
+                <div class="select-wrapper">
+                    <select class="glass-select">
+                        <option>All Categories</option>
+                        <option>Travel</option>
+                        <option>Food</option>
+                        <option>Productivity</option>
+                    </select>
+                    <i class="fa-solid fa-chevron-down select-icon"></i>
+                </div>
+            </div>
+
+            <div class="blogs-list">
+            </div>
+
+            <div class="pagination">
+                <span class="page-count">Page 1 of 2</span>
+                <div class="page-controls">
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="scriptmb.js"></script>
+</body>
+
+</html>
