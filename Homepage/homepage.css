@@ -9,7 +9,7 @@
     --white: #ffffff;
 }
 
-/* Reset default browser spacing and set border-box so padding doesn't affect width */
+
 * {
     margin: 0;
     padding: 0;
