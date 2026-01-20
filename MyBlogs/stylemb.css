@@ -1,3 +1,4 @@
+/* --- Global Variables --- */
 :root {
     --text-primary: #ffffff;
     --text-secondary: #e0e0e0;
@@ -6,27 +7,32 @@
     --text-dark: #333;
 }
 
+/* Reset Defaults */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Smooth Scrolling for the whole page */
 html {
     scroll-behavior: smooth;
 }
 
+/* --- Body Layout --- */
 body {
     font-family: 'Inter', sans-serif;
     height: 100vh;
     width: 100vw;
     overflow: hidden;
     display: flex;
+    /* Center the glass container */
     justify-content: center;
     align-items: center;
     color: var(--text-primary);
 }
 
+/* Fixed Background Image */
 .background-container {
     position: fixed;
     top: 0;
@@ -37,10 +43,14 @@ body {
     background: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') no-repeat center center/cover;
 }
 
+/* --- Main Glass Container --- */
 .glass-container {
     background: rgba(255, 255, 255, 0.15);
+    /* Transparency */
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    /* Shadow */
     backdrop-filter: blur(12px);
+    /* Blur effect */
     -webkit-backdrop-filter: blur(12px);
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -50,10 +60,13 @@ body {
     padding: 2rem 3rem;
     display: flex;
     flex-direction: column;
+    /* Stack navbar and content */
     position: relative;
     overflow-y: auto;
+    /* Internal scroll */
 }
 
+/* Custom Scrollbar */
 .glass-container::-webkit-scrollbar {
     width: 8px;
 }
@@ -63,6 +76,7 @@ body {
     border-radius: 4px;
 }
 
+/* --- Navbar Styling --- */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -95,6 +109,7 @@ body {
     cursor: pointer;
 }
 
+/* Active State for Nav Items */
 .nav-item.active {
     background: rgba(255, 255, 255, 0.5);
     border-radius: 8px;
@@ -124,6 +139,7 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Hamburger Animation */
 .menu-toggle.is-active .bar:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
 }
@@ -136,6 +152,7 @@ body {
     transform: translateY(-9px) rotate(-45deg);
 }
 
+/* --- Responsive Media Queries --- */
 @media (max-width: 768px) {
     .glass-container {
         padding: 1.5rem;
@@ -154,7 +171,6 @@ body {
         right: 0;
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
         width: 200px;
         flex-direction: column;
         align-items: center;
@@ -178,6 +194,7 @@ body {
     }
 }
 
+/* --- Page Content Styling --- */
 .page-header {
     display: flex;
     justify-content: space-between;
@@ -191,46 +208,7 @@ body {
     color: #222;
 }
 
-.btn-primary {
-    background: var(--btn-primary-bg);
-    border: none;
-    border-radius: 8px;
-    padding: 0.8rem 1.5rem;
-    color: #fff;
-    font-weight: 600;
-    font-size: 0.95rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(219, 157, 56, 0.4);
-}
-
-.filters-bar {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.search-wrapper {
-    position: relative;
-    flex: 1;
-}
-
-.search-icon {
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #555;
-    font-size: 0.9rem;
-}
-
+/* Input Fields with Glass Effect */
 .glass-input {
     width: 100%;
     background: rgba(255, 255, 255, 0.25);
@@ -246,34 +224,7 @@ body {
     color: #666;
 }
 
-.select-wrapper {
-    position: relative;
-    width: 200px;
-}
-
-.glass-select {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.25);
-    border: none;
-    border-radius: 8px;
-    padding: 0.9rem 1rem;
-    font-size: 0.95rem;
-    color: #333;
-    appearance: none;
-    outline: none;
-    cursor: pointer;
-}
-
-.select-icon {
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #555;
-    pointer-events: none;
-    font-size: 0.8rem;
-}
-
+/* Blog List Area */
 .blogs-list {
     display: flex;
     flex-direction: column;
@@ -283,15 +234,7 @@ body {
     padding-right: 0.5rem;
 }
 
-.blogs-list::-webkit-scrollbar {
-    width: 6px;
-}
-
-.blogs-list::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 3px;
-}
-
+/* Blog Card Styling */
 .blog-card {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 12px;
@@ -455,4 +398,97 @@ body {
     background: rgba(255, 255, 255, 0.6);
     font-weight: 600;
     color: #222;
+}
+
+@media (max-width: 768px) {
+    .glass-container {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        padding: 1rem;
+    }
+
+    .navbar {
+        margin-bottom: 1rem;
+    }
+
+    .blogs-list {
+        padding-right: 0;
+    }
+
+    .blog-card {
+        padding: 1rem;
+    }
+
+    .card-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .card-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .blog-snippet {
+        font-size: 0.9rem;
+    }
+
+    .card-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .blog-stats {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+/* Profile Dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+.dropdown-content p {
+    padding: 12px 16px;
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+    border-bottom: 1px solid #eee;
+}
+
+.dropdown-content button {
+    width: 100%;
+    text-align: left;
+    padding: 12px 16px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.dropdown-content button:hover {
+    background-color: #f1f1f1;
+}
+
+.profile-menu-container {
+    display: flex;
+    align-items: center;
 }

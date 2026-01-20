@@ -1,3 +1,4 @@
+/* --- Global Variables --- */
 :root {
     --glass-bg: rgba(255, 255, 255, 0.1);
     --glass-border: rgba(255, 255, 255, 0.2);
@@ -11,23 +12,28 @@
     --gold-gradient: linear-gradient(to right, #C0C0C0, #D4AF37);
 }
 
+/* Reset Defaults */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* --- Body Layout --- */
 body {
     font-family: 'Inter', sans-serif;
     height: 100vh;
+    /* Full viewport height */
     width: 100vw;
     overflow: hidden;
+    /* Prevent body scrolling */
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--text-primary);
 }
 
+/* Fixed Background Image */
 .background-container {
     position: fixed;
     top: 0;
@@ -38,10 +44,13 @@ body {
     background: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') no-repeat center center/cover;
 }
 
+/* --- Main Glass Container --- */
 .glass-container {
     background: rgba(255, 255, 255, 0.15);
+    /* Transparent white */
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
     backdrop-filter: blur(12px);
+    /* Blurs background */
     -webkit-backdrop-filter: blur(12px);
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -52,8 +61,10 @@ body {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    /* Internal scrolling */
 }
 
+/* Custom Scrollbar */
 .glass-container::-webkit-scrollbar {
     width: 8px;
 }
@@ -63,6 +74,7 @@ body {
     border-radius: 4px;
 }
 
+/* --- Navbar Styling --- */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -71,6 +83,7 @@ body {
     padding-bottom: 1rem;
 }
 
+/* Logo Styling */
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
@@ -79,6 +92,7 @@ body {
     letter-spacing: -0.5px;
 }
 
+/* Navigation Links */
 .nav-links {
     display: flex;
     gap: 1.5rem;
@@ -95,6 +109,7 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Hover and Active States */
 .nav-item.active {
     background: rgba(255, 255, 255, 0.4);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -104,6 +119,7 @@ body {
     background: rgba(255, 255, 255, 0.3);
 }
 
+/* Page Title */
 .page-title {
     font-size: 1.8rem;
     font-weight: 600;
@@ -111,6 +127,7 @@ body {
     color: #222;
 }
 
+/* --- Form Styling --- */
 .blog-form {
     display: flex;
     flex-direction: column;
@@ -123,12 +140,14 @@ body {
     gap: 0.5rem;
 }
 
+/* Form Labels */
 .form-group label {
     font-size: 0.9rem;
     font-weight: 500;
     color: #222;
 }
 
+/* Shared Styles for Inputs */
 .glass-input,
 .editor-textarea,
 .rich-text-editor,
@@ -149,6 +168,7 @@ body {
 .editor-textarea:focus,
 .glass-select:focus {
     background: rgba(255, 255, 255, 0.4);
+    /* Lighten on focus */
 }
 
 .glass-input::placeholder,
@@ -156,13 +176,16 @@ body {
     color: rgba(0, 0, 0, 0.4);
 }
 
+/* --- Rich Text Editor Styling --- */
 .rich-text-editor {
     padding: 0;
+    /* Removing padding from container, as children handle it */
     overflow: hidden;
     display: flex;
     flex-direction: column;
 }
 
+/* Toolbar */
 .toolbar {
     display: flex;
     gap: 1rem;
@@ -170,6 +193,7 @@ body {
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
+/* Toolbar Buttons */
 .tool-btn {
     background: none;
     border: none;
@@ -183,13 +207,33 @@ body {
     color: #000;
 }
 
+/* Content Editable Area */
 .editor-textarea {
     background: transparent;
     resize: none;
-    min-height: 150px;
+    min-height: 300px;
     border-radius: 0 0 8px 8px;
+    overflow-y: auto;
+    line-height: 1.6;
 }
 
+/* Images inside the editor */
+.editor-textarea img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+/* Placeholder support for contenteditable */
+.editor-textarea:empty:before {
+    content: attr(placeholder);
+    color: rgba(255, 255, 255, 0.4);
+    display: block;
+    /* For Firefox */
+}
+
+/* --- Select Dropdown --- */
 .select-wrapper {
     position: relative;
     width: 40%;
@@ -197,6 +241,7 @@ body {
 
 .glass-select {
     appearance: none;
+    /* Removes default OS specific arrow */
     cursor: pointer;
 }
 
@@ -207,9 +252,11 @@ body {
     transform: translateY(-50%);
     color: #444;
     pointer-events: none;
+    /* Let clicks pass through to select */
     font-size: 0.8rem;
 }
 
+/* --- Buttons --- */
 .form-actions {
     display: flex;
     gap: 1rem;
@@ -245,4 +292,51 @@ body {
 .btn-publish:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(219, 157, 56, 0.4);
+}
+
+/* --- Profile Dropdown --- */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+.dropdown-content p {
+    padding: 12px 16px;
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+    border-bottom: 1px solid #eee;
+}
+
+.dropdown-content button {
+    width: 100%;
+    text-align: left;
+    padding: 12px 16px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.dropdown-content button:hover {
+    background-color: #f1f1f1;
+}
+
+.profile-menu-container {
+    display: flex;
+    align-items: center;
 }

@@ -1,35 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> <!-- Declares this is an HTML5 document -->
+<html lang="en"> <!-- Sets language to English for browsers and screen readers -->
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"> <!-- Uses UTF-8 encoding for special characters -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Ensures the page scales correctly on mobile devices -->
     <title>Blogverse - Share Your Ideas</title>
+    <!-- Link to our custom CSS file for styling -->
     <link rel="stylesheet" href="homepage.css">
+    <!-- Link to FontAwesome for icons (like the user profile icon) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-    <div class="container">
+    <!-- Background image container, separate to allow strict positioning -->
+    <div class="background-container"></div>
+
+    <!-- Main glassmorphism container that holds all content -->
+    <div class="glass-container">
+        <!-- Navigation bar at the top -->
         <nav class="navbar">
             <div class="logo">Blogverse</div>
+
+            <!-- Mobile Menu Toggle (Hamburger Icon) -->
             <div class="menu-toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
+
+            <!-- Navigation Links -->
             <div class="nav-links">
                 <a href="homepage.html" class="nav-item active">Home</a>
                 <a href="../MyBlogs/myblogs.html" class="nav-item">My blog</a>
+
+                <!-- User Profile Dropdown Section -->
+                <div class="nav-item profile-menu-container" style="position: relative;">
+                    <i class="fa-solid fa-user profile-icon" style="cursor: pointer;"></i>
+                    <!-- Hidden dropdown menu for logged-in users -->
+                    <div class="dropdown-content" id="auth-dropdown">
+                        <p id="user-display">Logged in as...</p>
+                        <button id="logout-btn">Log Out</button>
+                        <!-- Login link shown only when not logged in -->
+                        <a href="../blog-ui/signin.html" id="login-link"><button id="login-btn">Log In</button></a>
+                    </div>
+                </div>
             </div>
         </nav>
 
+        <!-- Hero Section: The main welcome area -->
         <section class="hero">
             <h1>Share Your Ideas With World</h1>
             <p>Create, publish, and inspire through powerful blogs</p>
-            <button class="cta-button">Create New Blog</button>
+            <a href="../blog-ui/createnewblog.html"><button class="cta-button">Create New Blog</button></a>
         </section>
     </div>
 
+    <!-- Link to our JavaScript logic -->
     <script src="homepage.js"></script>
 </body>
 

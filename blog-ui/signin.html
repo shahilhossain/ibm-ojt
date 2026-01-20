@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Blogverse</title>
+    <link rel="stylesheet" href="stylecnb.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Background Image -->
+    <div class="background-container"></div>
+
+    <!-- Centered Login Card -->
+    <main class="glass-container"
+        style="max-width: 500px; height: auto; min-height: 400px; align-items: center; justify-content: center;">
+        <header class="navbar" style="width: 100%; justify-content: center; margin-bottom: 1rem;">
+            <h1 class="logo">Blogverse</h1>
+        </header>
+
+        <section class="content-area" style="width: 100%;">
+            <h2 class="page-title" style="text-align: center; margin-bottom: 2rem;">Sign In</h2>
+
+            <!-- Authentication Form handled by scriptauth.js -->
+            <form class="blog-form" id="signin-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter your username" class="glass-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" class="glass-input" required>
+                </div>
+
+                <div class="form-actions" style="margin-top: 2rem;">
+                    <button type="submit" class="btn btn-publish" style="width: 100%;">Sign In</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="scriptauth.js"></script>
+</body>
+
+</html>

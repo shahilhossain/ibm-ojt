@@ -1,30 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create New Blog</title>
     <link rel="stylesheet" href="stylecnb.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <div class="background-container"></div>
-    
+
     <main class="glass-container">
+        <!-- Navigation Bar -->
         <header class="navbar">
             <h1 class="logo">Blogverse</h1>
             <nav class="nav-links">
-                <a href="#" class="nav-item active">Home</a>
-                <a href="#" class="nav-item">My Blogs</a>
+                <a href="../Homepage/homepage.html" class="nav-item">Home</a>
+                <a href="../MyBlogs/myblogs.html" class="nav-item">My Blogs</a>
+                <div class="nav-item profile-menu-container" style="position: relative;">
+                    <i class="fa-solid fa-user profile-icon" style="cursor: pointer;"></i>
+                    <div class="dropdown-content" id="auth-dropdown">
+                        <p id="user-display">Logged in as...</p>
+                        <button id="logout-btn">Log Out</button>
+                        <a href="signin.html" id="login-link"><button id="login-btn">Log In</button></a>
+                    </div>
+                </div>
             </nav>
         </header>
 
         <section class="content-area">
             <h2 class="page-title">Create New Blog</h2>
 
+            <!-- Blog Post Form -->
             <form class="blog-form">
                 <div class="form-group">
                     <label for="title">Blog Title</label>
@@ -33,18 +45,42 @@
 
                 <div class="form-group">
                     <label for="content">Content</label>
+
+                    <!-- Custom Rich Text Editor -->
                     <div class="rich-text-editor">
+                        <!-- Toolbar with formatting buttons -->
                         <div class="toolbar">
-                            <button type="button" class="tool-btn"><i class="fa-solid fa-bold"></i></button>
-                            <button type="button" class="tool-btn"><i class="fa-solid fa-italic"></i></button>
-                            <button type="button" class="tool-btn"><i class="fa-solid fa-link"></i></button>
-                            <button type="button" class="tool-btn"><i class="fa-solid fa-list-ul"></i></button>
-                            <button type="button" class="tool-btn"><i class="fa-solid fa-list-ol"></i></button>
-                            <button type="button" class="tool-btn"><i class="fa-regular fa-image"></i></button>
+                            <button type="button" class="tool-btn" id="btn-bold" title="Bold"><i
+                                    class="fa-solid fa-bold"></i></button>
+                            <button type="button" class="tool-btn" id="btn-italic" title="Italic"><i
+                                    class="fa-solid fa-italic"></i></button>
+                            <button type="button" class="tool-btn" id="btn-link" title="Insert Link"><i
+                                    class="fa-solid fa-link"></i></button>
+                            <button type="button" class="tool-btn" id="btn-ul" title="Unordered List"><i
+                                    class="fa-solid fa-list-ul"></i></button>
+                            <button type="button" class="tool-btn" id="btn-ol" title="Ordered List"><i
+                                    class="fa-solid fa-list-ol"></i></button>
+                            <!-- Image upload button triggers the hidden file input -->
+                            <button type="button" class="tool-btn" id="btn-image" title="Insert Image"><i
+                                    class="fa-regular fa-image"></i></button>
                             <div class="divider"></div>
-                            <button type="button" class="tool-btn"><i class="fa-solid fa-quote-right"></i></button>
+                            <button type="button" class="tool-btn" id="btn-quote" title="Blockquote"><i
+                                    class="fa-solid fa-quote-right"></i></button>
+
+                            <!-- Hidden input for file selection -->
+                            <input type="file" id="image-upload" accept="image/*" style="display: none;">
                         </div>
-                        <textarea id="content" placeholder="Write your blog content here..." class="editor-textarea"></textarea>
+
+                        <!-- Editable Div - Acts like a text area but supports HTML -->
+                        <div id="editor" class="editor-textarea" contenteditable="true"
+                            placeholder="Write your blog content here..."></div>
+                    </div>
+
+                    <!-- Section to show thumbnails of selected images -->
+                    <div id="attachments-section" style="display: none; margin-top: 1rem;">
+                        <label style="font-size: 0.9rem; color: #333; margin-bottom: 0.5rem; display: block;">Attached
+                            Images:</label>
+                        <div id="files-list" class="files-list"></div>
                     </div>
                 </div>
 
@@ -61,8 +97,10 @@
                     </div>
                 </div>
 
+                <!-- Form Buttons -->
                 <div class="form-actions">
                     <button type="button" class="btn btn-cancel">Cancel</button>
+                    <!-- Type submit to trigger form submission -->
                     <button type="submit" class="btn btn-publish">Publish Blog</button>
                 </div>
             </form>
@@ -71,4 +109,5 @@
 
     <script src="scriptcnb.js"></script>
 </body>
+
 </html>
