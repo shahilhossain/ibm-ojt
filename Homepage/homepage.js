@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('is-active'); // Animates the icon
+            menuToggle.classList.toggle('is-active');
             navLinks.classList.toggle('active');      // Shows/hides the links
         });
     }
